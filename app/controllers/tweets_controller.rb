@@ -50,7 +50,7 @@ class TweetsController < ApplicationController
   end 
   
   patch '/tweets/:id' do
-    binding.pry 
+    #binding.pry 
     tweet = Tweet.find(params[:id])
     if logged_in? && current_user.id == tweet.user_id && !params[:content].empty?
       tweet.update(content: params[:content])
