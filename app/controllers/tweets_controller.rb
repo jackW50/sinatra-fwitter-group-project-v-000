@@ -55,6 +55,7 @@ class TweetsController < ApplicationController
     if tweet.user_id == current_user.id && !tweet.content.empty? 
       tweet.update(content: params[:content])
       redirect "/tweets/#{tweet.id}"
+    elsif tweet.user_id == current_user.id && tweet.content.empty?
     else 
       redirect "/login"
     end 
