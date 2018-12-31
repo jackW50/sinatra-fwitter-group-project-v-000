@@ -40,6 +40,14 @@ class TweetsController < ApplicationController
     end 
   end 
   
+  context "logged out" do
+      it 'does not load -- instead redirects to login' do
+        get '/tweets/1/edit'
+        expect(last_response.location).to include("/login")
+      end
+    end
+  end
+  
   get '/tweets/:id/edit' do
     @tweet = Tweet.find(params[:id])
     if logged_in?
