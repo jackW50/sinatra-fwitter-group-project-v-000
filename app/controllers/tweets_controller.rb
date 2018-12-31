@@ -60,7 +60,6 @@ class TweetsController < ApplicationController
     elsif logged_in? && current_user.id != tweet.user_id && params[:content]
       redirect "/tweets"
     else 
-      binding.pry 
       redirect "/login"
     end 
   end 
