@@ -41,7 +41,6 @@ class TweetsController < ApplicationController
   end 
   
   get '/tweets/:id/edit' do
-    
     @tweet = Tweet.find(params[:id])
     if logged_in?
       erb :"/tweets/edit_tweet"
